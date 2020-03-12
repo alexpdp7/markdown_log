@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "md_log"
+version = "0.1.0"
+description = ""
+authors = ["alex <alex@pdp7.net>"]
+
+[tool.poetry.dependencies]
+python = ">=3.6"
+panflute = "^1.12"
+
+[tool.poetry.dev-dependencies]
+ipython = "*"
+ipdb = "*"
+flake8 = "*"
+black = { version = "*", allow-prereleases = true }
+flake8-black = "*"
+pytest = "*"
+
+[tool.poetry.scripts]
+md_log = 'md_log:main'
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
