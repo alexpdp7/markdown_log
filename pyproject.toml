@@ -5,7 +5,7 @@ description = ""
 authors = ["alex <alex@pdp7.net>"]
 
 [tool.poetry.dependencies]
-python = ">=3.6"
+python = ">=3.7"
 panflute = "^1.12"
 
 [tool.poetry.dev-dependencies]
