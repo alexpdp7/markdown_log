@@ -1,1 +1,7 @@
-$ poetry run md_log <file>
+INSTALL
+
+$ pipx install --spec git+https://github.com/alexpdp7/markdown_log.git md_log
+
+USAGE
+
+$ md_log <file>
