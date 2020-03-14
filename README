@@ -1,1 +1,1 @@
-$ pandoc ... -t json | poetry run md_log
+$ poetry run md_log <file>
