@@ -4,8 +4,6 @@ $ pipx install --spec git+https://github.com/alexpdp7/markdown_log.git md_log
 
 USAGE
 
-$ md_log <file>
-
 EXAMPLE
 
 log.md:
@@ -40,6 +38,6 @@ log.md:
 * Started tackling task 2
 8< 8< 8< 8< 8< 8< 8< 8< 8< 8< 8< 8<
 
-$ md_log log.md
-2020-12-03 8:00:00
-2020-12-04 5:00:00
+See:
+
+$ md_log --help
