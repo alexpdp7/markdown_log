@@ -1,18 +1,14 @@
-import collections
-import datetime
-import sys
+import argparse
 
-from md_log import parser
+from md_log import daily_targets
 
 
 def main():
-    with open(sys.argv[1], "r") as f:
-        periods = parser.parse([f])
-        date_hours = collections.defaultdict(datetime.timedelta)
-        for period in periods:
-            date_hours[period.begin.date()] += period.end - period.begin
-        for date, time in date_hours.items():
-            print(date, time)
+    parser = argparse.ArgumentParser()
+    subparsers = parser.add_subparsers()
+    daily_targets.make_parser(subparsers)
+    args = parser.parse_args()
+    args.func(args)
 
 
 if __name__ == "__main__":
