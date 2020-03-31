@@ -44,19 +44,11 @@ This command checks daily worked time against a target:
 
 ```
 $ md_log daily-target log.md --target-hours=8 --filter Work
-2020-12-03 8:30:00 too much 0:45:00
-2020-12-04 7:15:00 too much 0:15:00
-2020-12-05 9:00:00 too much 1:00:00
+      Date    Matching        Target          Delta           Running
+----------  ----------  --  --------  --  ---------  -----  ---------
+2020-12-03     8:30:00   -   8:00:00   =  + 0:30:00  + ↘ =  = 0:00:00
+2020-12-04     6:30:00   -   8:00:00   =  - 1:30:00  + ↘ =  - 0:30:00
+2020-12-05     9:00:00   -   8:00:00   =  + 1:00:00  + ↘ =  + 1:00:00
 ```
 
 In this case, we are interested in working 8 daily hours on `Work / *` tasks.
-
-Columns are:
-
-* Date
-* Hours worked that day on filtered tasks
-* Running total
-
-The running total starts on the last day worked, so working 9 hours results in 1 hour excess work over the 8-hour target.
-The previous day we worked just 7 hours and 15 minutes, so this reduces the excess work to 15 minutes.
-The first day 8 hours and 30 minutes were logged, increasing the excess work to 45 minutes.
