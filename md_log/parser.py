@@ -79,5 +79,6 @@ def parse(files):
     walker = Walker()
     for file in files:
         walker.parse_file(file)
-    print("\n".join(walker.warnings))
+    if walker.warnings:
+        print("\n".join(walker.warnings))
     return walker.periods
