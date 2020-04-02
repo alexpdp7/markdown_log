@@ -82,7 +82,7 @@ class Report:
 
     def get_table(self):
         return (
-            ["Date", "Matching", "", "Target", "", "Delta", "", "Running"],
+            ["Date", "Sum", "Target", "Delta", "Running"],
             [day.as_row() for _, day in sorted(self.days.items())],
         )
 
@@ -110,12 +110,9 @@ class Day:
         return [
             self.date,
             self.matching_time,
-            "-",
-            self.target,
-            "=",
-            _format(self.difference_to_target),
-            "+ \u2198 = ",
-            _format(self.running_difference_to_target),
+            f"- {self.target}",
+            "= " + _format(self.difference_to_target),
+            "+ \u2198 = " + _format(self.running_difference_to_target),
         ]
 
 
