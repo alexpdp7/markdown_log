@@ -44,11 +44,11 @@ This command checks daily worked time against a target:
 
 ```
 $ md_log daily-target log.md --target-hours=8 --filter Work
-      Date    Matching        Target          Delta           Running
-----------  ----------  --  --------  --  ---------  -----  ---------
-2020-12-03     8:30:00   -   8:00:00   =  + 0:30:00  + ↘ =  = 0:00:00
-2020-12-04     6:30:00   -   8:00:00   =  - 1:30:00  + ↘ =  - 0:30:00
-2020-12-05     9:00:00   -   8:00:00   =  + 1:00:00  + ↘ =  + 1:00:00
+      Date      Sum     Target        Delta          Running
+----------  -------  ---------  -----------  ---------------
+2020-12-03  8:30:00  - 8:00:00  = + 0:30:00  + ↘ = = 0:00:00
+2020-12-04  6:30:00  - 8:00:00  = - 1:30:00  + ↘ = - 0:30:00
+2020-12-05  9:00:00  - 8:00:00  = + 1:00:00  + ↘ = + 1:00:00
 ```
 
 In this case, we are interested in working 8 daily hours on `Work / *` tasks.
