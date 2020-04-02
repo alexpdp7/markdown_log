@@ -129,4 +129,4 @@ def daily_targets(args):
     filter = args.filter.split("/") if args.filter else None
     report = _make_report(periods, filter, datetime.timedelta(hours=args.target_hours))
     headers, table = report.get_table()
-    print(tabulate.tabulate(table, headers, colalign=("right",) * len(headers)))
+    print(tabulate.tabulate(table, headers, stralign="right"))
