@@ -28,3 +28,20 @@ def test_basic():
     ]
     assert len(periods[0].items) == 1
     assert panflute.stringify(periods[0].items[0]) == "I did some stuff"
+
+
+def test_warnings():
+    walker = parser.Walker()
+    log = """
+# WTF
+
+## WTF
+
+* ...
+"""
+    walker.parse_file(io.StringIO(log))
+    assert len(walker.periods) == 0
+    assert walker.warnings == [
+        "Ignoring header for day WTF",
+        "Ignoring header for period WTF",
+    ]

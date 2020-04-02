@@ -21,6 +21,7 @@ class Walker:
         self.period = None
         self.periods = []
         self.current_day = None
+        self.warnings = []
 
     def parse_file(self, f):
         doc = pf.convert_text(f.read(), standalone=True)
@@ -33,7 +34,7 @@ class Walker:
                 try:
                     self.current_day = datetime.date.fromisoformat(day_text)
                 except ValueError:
-                    print(f"Ignoring header for day {day_text}")
+                    self.warnings.append(f"Ignoring header for day {day_text}")
                     self.current_day = None
             if elem.level == 2:
                 period_text = elem.content[0].text
@@ -46,7 +47,7 @@ class Walker:
                     self.period = Period(begin=begin, end=end)
                     self.periods.append(self.period)
                 except ValueError:
-                    print(f"Ignoring header for period {period_text}")
+                    self.warnings.append(f"Ignoring header for period {period_text}")
                     self.period = None
             if elem.level == 3:
                 # first, partition on '/'s
@@ -78,4 +79,5 @@ def parse(files):
     walker = Walker()
     for file in files:
         walker.parse_file(file)
+    print("\n".join(walker.warnings))
     return walker.periods
