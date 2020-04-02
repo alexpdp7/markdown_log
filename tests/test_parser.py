@@ -33,15 +33,29 @@ def test_basic():
 def test_warnings():
     walker = parser.Walker()
     log = """
-# WTF
+# WTF WTF
 
-## WTF
+## WTF WTF
 
 * ...
 """
     walker.parse_file(io.StringIO(log))
     assert len(walker.periods) == 0
     assert walker.warnings == [
-        "Ignoring header for day WTF",
-        "Ignoring header for period WTF",
+        "Ignoring header for day WTF WTF",
+        "Ignoring header for period WTF WTF",
     ]
+
+
+def test_no_warn():
+    walker = parser.Walker()
+    log = """
+# WTF NOWARN WTF
+
+## WTF NOWARN WTF
+
+* ...
+"""
+    walker.parse_file(io.StringIO(log))
+    assert len(walker.periods) == 0
+    assert walker.warnings == []

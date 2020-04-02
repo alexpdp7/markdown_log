@@ -34,7 +34,10 @@ class Walker:
                 try:
                     self.current_day = datetime.date.fromisoformat(day_text)
                 except ValueError:
-                    self.warnings.append(f"Ignoring header for day {day_text}")
+                    if "NOWARN" not in pf.stringify(elem):
+                        self.warnings.append(
+                            f"Ignoring header for day {pf.stringify(elem)}"
+                        )
                     self.current_day = None
             if elem.level == 2:
                 period_text = elem.content[0].text
@@ -47,7 +50,10 @@ class Walker:
                     self.period = Period(begin=begin, end=end)
                     self.periods.append(self.period)
                 except ValueError:
-                    self.warnings.append(f"Ignoring header for period {period_text}")
+                    if "NOWARN" not in pf.stringify(elem):
+                        self.warnings.append(
+                            f"Ignoring header for period {pf.stringify(elem)}"
+                        )
                     self.period = None
             if elem.level == 3:
                 # first, partition on '/'s
