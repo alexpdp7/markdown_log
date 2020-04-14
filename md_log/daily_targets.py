@@ -33,6 +33,8 @@ def make_parser(subparsers):
 
 
 def _hierarchy_matches_filter(hierarchy, filter):
+    if len(filter) > len(hierarchy):
+        return False
     for i, filter_part in enumerate(filter):
         if hierarchy[i] != filter_part:
             return False

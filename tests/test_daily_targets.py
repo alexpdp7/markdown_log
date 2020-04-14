@@ -19,3 +19,7 @@ def test_matches_filter_none():
 
 def test_matches_filter_prefix():
     assert daily_targets._matches_filter([["foo", "bar", "baz"]], ["foo", "bar"])
+
+
+def test_matches_filter_shorter():
+    assert not daily_targets._matches_filter([["foo", "bar"]], ["foo", "bar", "baz"])
