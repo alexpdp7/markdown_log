@@ -32,7 +32,9 @@ class Walker:
             if elem.level == 1:
                 day_text = elem.content[0].text
                 try:
-                    self.current_day = datetime.date.fromisoformat(day_text)
+                    self.current_day = datetime.datetime.strptime(
+                        day_text, "%Y-%m-%d"
+                    ).date()
                 except ValueError:
                     if "NOWARN" not in pf.stringify(elem):
                         self.warnings.append(
@@ -43,7 +45,8 @@ class Walker:
                 period_text = elem.content[0].text
                 try:
                     begin_time, end_time = map(
-                        datetime.time.fromisoformat, period_text.split("-")
+                        lambda d: datetime.datetime.strptime(d, "%H:%M").time(),
+                        period_text.split("-"),
                     )
                     begin = datetime.datetime.combine(self.current_day, begin_time)
                     end = datetime.datetime.combine(self.current_day, end_time)
