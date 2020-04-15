@@ -1,6 +1,7 @@
 import argparse
 import dataclasses
 import datetime
+import typing
 
 import tabulate
 
@@ -93,9 +94,9 @@ class Report:
 class Day:
     date: datetime.date
     report: Report
-    running_difference_to_target: datetime.timedelta = dataclasses.field(
-        default_factory=lambda: None,
-    )
+    running_difference_to_target: typing.Optional[
+        datetime.timedelta
+    ] = dataclasses.field(default=None,)
     matching_time: datetime.timedelta = dataclasses.field(
         default_factory=datetime.timedelta,
     )

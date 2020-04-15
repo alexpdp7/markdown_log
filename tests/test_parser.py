@@ -1,7 +1,7 @@
 import datetime
 import io
 
-import panflute
+import panflute  # type: ignore
 
 from md_log import parser
 

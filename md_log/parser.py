@@ -3,7 +3,7 @@ import datetime
 import itertools
 import typing
 
-import panflute as pf
+import panflute as pf  # type: ignore
 
 
 @dataclasses.dataclass
