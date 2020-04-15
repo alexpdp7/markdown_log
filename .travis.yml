@@ -12,3 +12,4 @@ install:
 script:
 - poetry run flake8
 - poetry run pytest
+- poetry run mypy md_log

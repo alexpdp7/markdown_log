@@ -17,6 +17,7 @@ flake8 = "*"
 black = { version = "*", allow-prereleases = true }
 flake8-black = "*"
 pytest = "*"
+mypy = "*"
 
 [tool.poetry.scripts]
 md_log = 'md_log:main'
