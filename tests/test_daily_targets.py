@@ -1,3 +1,6 @@
+import datetime
+import io
+
 import md_log
 from md_log import daily_targets
 
@@ -32,3 +35,57 @@ def test_args():
     )
     assert args.filter == "foo"
     assert args.target_hours == 3
+
+
+def test_daily_targets():
+    headers, table = daily_targets._daily_targets(
+        [
+            io.StringIO(
+                """
+# 2019-12-03
+## 09:00-16:00
+### Something
+
+* ...
+
+# 2019-12-04
+## 09:00-17:00
+### Something
+
+* ...
+
+# 2019-12-05
+## 09:00-18:00
+### Something
+
+* ...
+"""
+            )
+        ],
+        None,
+        8,
+    )
+    assert headers == ["Date", "Sum", "Target", "Delta", "Running"]
+    assert table == [
+        [
+            datetime.date(2019, 12, 3),
+            datetime.timedelta(seconds=7 * 60 * 60),
+            "- 8:00:00",
+            "= - 1:00:00",
+            "+ ↘ = = 0:00:00",
+        ],
+        [
+            datetime.date(2019, 12, 4),
+            datetime.timedelta(seconds=8 * 60 * 60),
+            "- 8:00:00",
+            "= = 0:00:00",
+            "+ ↘ = + 1:00:00",
+        ],
+        [
+            datetime.date(2019, 12, 5),
+            datetime.timedelta(seconds=9 * 60 * 60),
+            "- 8:00:00",
+            "= + 1:00:00",
+            "+ ↘ = + 1:00:00",
+        ],
+    ]

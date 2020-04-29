@@ -127,9 +127,13 @@ def _make_report(periods, filter, target):
     return report
 
 
+def _daily_targets(logfiles, filter, target_hours):
+    periods = parser.parse(logfiles)
+    report = _make_report(periods, filter, datetime.timedelta(hours=target_hours))
+    return report.get_table()
+
+
 def daily_targets(args):
-    periods = parser.parse(args.logfiles)
     filter = args.filter.split("/") if args.filter else None
-    report = _make_report(periods, filter, datetime.timedelta(hours=args.target_hours))
-    headers, table = report.get_table()
+    headers, table = _daily_targets(args.logfiles, filter, args.target_hours)
     print(tabulate.tabulate(table, headers, stralign="right"))
