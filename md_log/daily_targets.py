@@ -24,11 +24,19 @@ FILTER_HELP = """
 this
 """.strip()
 
+DIGEST_HELP = """
+Only print the first day and all days since the last day since the last day
+whose running total equals that of the first day
+""".strip()
+
 
 def make_parser(subparsers):
     daily_target_parser = subparsers.add_parser("daily-target", description=HELP)
     daily_target_parser.add_argument("--filter", help=FILTER_HELP)
     daily_target_parser.add_argument("--target-hours", default=8, type=int)
+    daily_target_parser.add_argument(
+        "--digest", default=False, action="store_const", const=True, help=DIGEST_HELP
+    )
     daily_target_parser.add_argument("logfiles", nargs="+", type=argparse.FileType("r"))
     daily_target_parser.set_defaults(func=daily_targets)
 
@@ -83,10 +91,25 @@ class Report:
             target_diff += self.days[day].matching_time
             self.days[day].running_difference_to_target = target_diff
 
-    def get_table(self):
+    def digest(self, days):
+        total_difference_to_target = days[0].running_difference_to_target
+        target_days = [
+            i
+            for i, day in enumerate(days)
+            if day.running_difference_to_target == total_difference_to_target
+        ]
+        if not target_days:
+            return days
+        return [days[0]] + days[target_days[-1] :]
+
+    def get_table(self, digest):
+        days = [day for _, day in sorted(self.days.items())]
+        if digest:
+            days = self.digest(days)
+        rows = [day.as_row() for day in days]
         return (
             ["Date", "Sum", "Target", "Delta", "Running"],
-            [day.as_row() for _, day in sorted(self.days.items())],
+            rows,
         )
 
 
@@ -127,13 +150,15 @@ def _make_report(periods, filter, target):
     return report
 
 
-def _daily_targets(logfiles, filter, target_hours):
+def _daily_targets(logfiles, filter, target_hours, digest):
     periods = parser.parse(logfiles)
     report = _make_report(periods, filter, datetime.timedelta(hours=target_hours))
-    return report.get_table()
+    return report.get_table(digest)
 
 
 def daily_targets(args):
     filter = args.filter.split("/") if args.filter else None
-    headers, table = _daily_targets(args.logfiles, filter, args.target_hours)
+    headers, table = _daily_targets(
+        args.logfiles, filter, args.target_hours, args.digest
+    )
     print(tabulate.tabulate(table, headers, stralign="right"))

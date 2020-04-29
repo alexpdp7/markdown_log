@@ -52,3 +52,5 @@ $ md_log daily-target log.md --target-hours=8 --filter Work
 ```
 
 In this case, we are interested in working 8 daily hours on `Work / *` tasks.
+
+The `--digest` option skips all days between the first day and the last day whose running total equals that of the first day.
