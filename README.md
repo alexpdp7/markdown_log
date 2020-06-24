@@ -24,7 +24,7 @@ It requires [pandoc](https://pandoc.org/) to be installed.
 We recommend installing it using [pipx](https://pipxproject.github.io/pipx/):
 
 ```
-$ pipx install --spec git+https://github.com/alexpdp7/markdown_log.git md_log
+$ pipx install git+https://github.com/alexpdp7/markdown_log.git
 ```
 
 # USAGE
