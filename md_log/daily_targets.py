@@ -119,7 +119,9 @@ class Day:
     report: Report
     running_difference_to_target: typing.Optional[
         datetime.timedelta
-    ] = dataclasses.field(default=None,)
+    ] = dataclasses.field(
+        default=None,
+    )
     matching_time: datetime.timedelta = dataclasses.field(
         default_factory=datetime.timedelta,
     )
