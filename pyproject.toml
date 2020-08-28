@@ -8,7 +8,7 @@ authors = ["alex <alex@pdp7.net>"]
 python = ">=3.6"
 panflute = "^1.12"
 tabulate = "^0.8.7"
-dataclasses = { version = "0.7", python = "~3.6" }
+dataclasses = { version = "0.7", python = ">=3.6, <3.7" }
 
 [tool.poetry.dev-dependencies]
 ipython = "*"
