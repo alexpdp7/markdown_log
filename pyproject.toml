@@ -7,7 +7,7 @@ authors = ["alex <alex@pdp7.net>"]
 [tool.poetry.dependencies]
 python = ">=3.6"
 panflute = "^1.12"
-tabulate = "^0.8.7"
+tabulate = "^0.8.8"
 dataclasses = { version = "0.8", python = "~3.6" }
 
 [tool.poetry.dev-dependencies]
