@@ -1,0 +1,19 @@
+version: 2
+updates:
+- package-ecosystem: pip
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "04:00"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: mypy
+    versions:
+    - "0.800"
+    - "0.812"
+  - dependency-name: tabulate
+    versions:
+    - 0.8.8
+  - dependency-name: pytest
+    versions:
+    - 6.2.2
