@@ -18,6 +18,8 @@ black = { version = "*", allow-prereleases = true }
 flake8-black = "*"
 pytest = "*"
 mypy = "*"
+types-tabulate = "^0.1.0"
+types-dataclasses = "^0.1.3"
 
 [tool.poetry.scripts]
 md_log = 'md_log:main'
