@@ -261,19 +261,19 @@ pyparsing = ">=2.0.2"
 
 [[package]]
 name = "panflute"
-version = "1.12.5"
+version = "2.1.0"
 description = "Pythonic Pandoc filters"
 category = "main"
 optional = false
-python-versions = "*"
+python-versions = ">=3.6"
 
 [package.dependencies]
-click = "*"
-pyyaml = "*"
+click = ">=6,<8"
+pyyaml = ">=3,<6"
 
 [package.extras]
-pypi = ["docutils", "pygments"]
-test = ["pandocfilters", "configparser", "pytest-cov"]
+dev = ["configparser", "coverage", "flake8", "pandocfilters", "pytest-cov", "pytest", "requests"]
+pypi = ["docutils", "pygments", "twine", "wheel"]
 
 [[package]]
 name = "parso"
@@ -523,7 +523,7 @@ testing = ["pytest (>=3.5,!=3.7.3)", "pytest-checkdocs (>=1.2.3)", "pytest-flake
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.6"
-content-hash = "a7852fc0cd57c775374fe6e7d857213c91e6b68fff5ec9a8467279e6dcc3c854"
+content-hash = "6ec895dcfdf922dee6aef0537bf1fbcc6dd1547b244f05e4e201fdbe27e77be5"
 
 [metadata.files]
 appdirs = [
@@ -634,7 +634,8 @@ packaging = [
     {file = "packaging-20.9.tar.gz", hash = "sha256:5b327ac1320dc863dca72f4514ecc086f31186744b84a230374cc1fd776feae5"},
 ]
 panflute = [
-    {file = "panflute-1.12.5.tar.gz", hash = "sha256:8b89507c02fde97650441d50169958b50cb13000edcc7f061390ea6fc313775c"},
+    {file = "panflute-2.1.0-py3-none-any.whl", hash = "sha256:7bdaf2bd4666539fe91f649bd2983b15085a96fe95f8e1723cf001500bb9f94b"},
+    {file = "panflute-2.1.0.tar.gz", hash = "sha256:8a3d5dd2a10c3aa6fa8167713fedb47400f0e8ae6ea8346fd4b599842bb1882d"},
 ]
 parso = [
     {file = "parso-0.8.1-py2.py3-none-any.whl", hash = "sha256:15b00182f472319383252c18d5913b69269590616c947747bc50bf4ac768f410"},
