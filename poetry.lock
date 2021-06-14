@@ -478,7 +478,7 @@ python-versions = "*"
 
 [[package]]
 name = "types-dataclasses"
-version = "0.1.3"
+version = "0.1.4"
 description = "Typing stubs for dataclasses"
 category = "dev"
 optional = false
@@ -523,7 +523,7 @@ testing = ["pytest (>=3.5,!=3.7.3)", "pytest-checkdocs (>=1.2.3)", "pytest-flake
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.6"
-content-hash = "62a8c6c360c8c4db7a6551473d23ef479b245b4bf19768b1ffd55509522dc09a"
+content-hash = "a7852fc0cd57c775374fe6e7d857213c91e6b68fff5ec9a8467279e6dcc3c854"
 
 [metadata.files]
 appdirs = [
@@ -811,7 +811,7 @@ typed-ast = [
     {file = "typed_ast-1.4.2.tar.gz", hash = "sha256:9fc0b3cb5d1720e7141d103cf4819aea239f7d136acf9ee4a69b047b7986175a"},
 ]
 types-dataclasses = [
-    {file = "types_dataclasses-0.1.3-py2.py3-none-any.whl", hash = "sha256:133fd65e2475817486e4e0c78302a049210f2ee6d69146f0d73155e6934c06ee"},
+    {file = "types_dataclasses-0.1.4-py2.py3-none-any.whl", hash = "sha256:7c47b76d45d5237d3ff8219ad4c50f939426804590227d1c39576c49185b823d"},
 ]
 types-tabulate = [
     {file = "types_tabulate-0.1.0-py2.py3-none-any.whl", hash = "sha256:756430aa053fb6e72a0e33a74cd451ec71b1dc493ab24b5be8abe34d874d0f13"},
