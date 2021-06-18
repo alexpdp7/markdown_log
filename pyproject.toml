@@ -19,7 +19,7 @@ flake8-black = "*"
 pytest = "*"
 mypy = "*"
 types-tabulate = "^0.1.0"
-types-dataclasses = "^0.1.4"
+types-dataclasses = "^0.1.5"
 
 [tool.poetry.scripts]
 md_log = 'md_log:main'
