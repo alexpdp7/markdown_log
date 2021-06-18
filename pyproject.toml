@@ -18,7 +18,7 @@ black = { version = "*", allow-prereleases = true }
 flake8-black = "*"
 pytest = "*"
 mypy = "*"
-types-tabulate = "^0.1.0"
+types-tabulate = "^0.1.1"
 types-dataclasses = "^0.1.5"
 
 [tool.poetry.scripts]
