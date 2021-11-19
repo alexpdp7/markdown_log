@@ -54,3 +54,15 @@ $ md_log daily-target log.md --target-hours=8 --filter Work
 In this case, we are interested in working 8 daily hours on `Work / *` tasks.
 
 The `--digest` option skips all days between the first day and the last day whose running total equals that of the first day.
+
+### xbar
+
+You can use this to generate a quick report for xbar/Argos:
+
+```
+$ md_log xbar ~/git/rh/log.md --target-hours=8 --filter Work
+```
+
+Prints the corresponding `daily-target` report (with `--digest`), the log for the current day.
+
+Put `STOP_XBAR` in your log if you don't want information below that point to show in the output.
