@@ -1,13 +1,14 @@
 import argparse
 import sys
 
-from md_log import daily_targets
+from md_log import daily_targets, xbar
 
 
 def parse_args(argv):
     parser = argparse.ArgumentParser()
     subparsers = parser.add_subparsers()
     daily_targets.make_parser(subparsers)
+    xbar.make_parser(subparsers)
     args = parser.parse_args(argv)
     if not hasattr(args, "func"):
         parser.print_help()

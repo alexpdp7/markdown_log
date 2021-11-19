@@ -38,7 +38,7 @@ def test_args():
 
 
 def test_daily_targets():
-    headers, table = daily_targets._daily_targets(
+    headers, table = daily_targets.create_daily_targets_report(
         [
             io.StringIO(
                 """
@@ -93,7 +93,7 @@ def test_daily_targets():
 
 
 def test_daily_targets_digest():
-    headers, table = daily_targets._daily_targets(
+    headers, table = daily_targets.create_daily_targets_report(
         [
             io.StringIO(
                 """
