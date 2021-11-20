@@ -60,7 +60,7 @@ The `--digest` option skips all days between the first day and the last day whos
 You can use this to generate a quick report for xbar/Argos:
 
 ```
-$ md_log xbar ~/git/rh/log.md --target-hours=8 --filter Work
+$ md_log xbar log.md --target-hours=8 --filter Work
 ```
 
 Prints the corresponding `daily-target` report (with `--digest`), the log for the current day.
