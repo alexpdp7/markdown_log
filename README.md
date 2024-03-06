@@ -1,3 +1,5 @@
+Deprecated, now focused on https://github.com/alexpdp7/djot-log
+
 # INTRODUCTION
 
 `markdown_log` is a time tracking tool based on keeping your logs in Markdown:
